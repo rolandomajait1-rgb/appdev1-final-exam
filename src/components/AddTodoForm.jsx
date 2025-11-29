@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodoAsync } from '../features/todos/todoSlice';
+import { addTodoAsync, fetchTodosAsync } from '../features/todos/todoSlice';
 
 const AddTodoForm = () => {
   const [input, setInput] = useState('');
   const dispatch = useDispatch();
   const theme = useSelector(state => state.theme.current);
+
+  useEffect(() => {
+    dispatch(fetchTodosAsync());
+  }, [dispatch]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
