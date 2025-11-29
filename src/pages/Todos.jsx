@@ -9,15 +9,23 @@ const Todos = () => {
 
   return (
     <div className={theme}>
-      <header id="header">
-        <h1 id="title" className={theme === 'darker' ? 'darker-title' : ''}>
-          Todo List
+      <div id="header">
+        <div className="flexrow-container">
+          <ThemeSelector />
+        </div>
+        <h1 id="title">
+          Just do it<span className="pulse">.</span>
         </h1>
+      </div>
+      <div id="form">
+        <AddTodoForm />
+      </div>
+      <div>
         <DateTime />
-        <ThemeSelector />
-      </header>
-      <AddTodoForm />
-      <TodoList />
+      </div>
+      <div id="myUnOrdList">
+        <TodoList />
+      </div>
     </div>
   );
 };

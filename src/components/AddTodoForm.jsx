@@ -29,10 +29,10 @@ const AddTodoForm = () => {
         className={`todo-input ${theme}-input`}
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Enter a todo..."
+        placeholder="Add a task."
       />
       <button type="submit" className={`todo-btn ${theme}-button`}>
-        <i className="fas fa-plus-square"></i>
+        I Got This!
       </button>
     </form>
   );

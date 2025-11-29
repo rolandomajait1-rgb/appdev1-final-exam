@@ -4,7 +4,7 @@ import Login from './pages/Login';
 import Todos from './pages/Todos';
 import './App.css';
 import './styles/fonts.css';
-import './styles/main.css';
+import './styles/modern.css';
 
 function App() {
   return (

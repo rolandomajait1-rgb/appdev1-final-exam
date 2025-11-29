@@ -9,20 +9,20 @@ const ThemeSelector = () => {
   };
 
   return (
-    <div className="theme-selector">
-      <button 
-        className="theme-selector__item standard-theme"
+    <>
+      <div 
+        className="standard-theme theme-selector"
         onClick={() => handleThemeChange('standard')}
-      ></button>
-      <button 
-        className="theme-selector__item light-theme"
+      ></div>
+      <div 
+        className="light-theme theme-selector"
         onClick={() => handleThemeChange('light')}
-      ></button>
-      <button 
-        className="theme-selector__item darker-theme"
+      ></div>
+      <div 
+        className="darker-theme theme-selector"
         onClick={() => handleThemeChange('darker')}
-      ></button>
-    </div>
+      ></div>
+    </>
   );
 };
 
