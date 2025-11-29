@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { fetchUsers } from '../utils/todosAPI';
 
 const Login = () => {
@@ -7,6 +8,7 @@ const Login = () => {
   const [selectedUser, setSelectedUser] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const theme = useSelector(state => state.theme.current);
   const SECRET_PASSWORD = import.meta.env.VITE_APP_SECRET_PASSWORD;
 
   useEffect(() => {
@@ -33,10 +35,11 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <h1>Login</h1>
+    <div id="header" className="login">
+      <h1 id="title">Login</h1>
       <form onSubmit={handleLogin}>
         <select
+          className={`${theme}-input`}
           value={selectedUser}
           onChange={(e) => setSelectedUser(e.target.value)}
           required
@@ -49,13 +52,14 @@ const Login = () => {
           ))}
         </select>
         <input
+          className={`${theme}-input`}
           type="password"
           placeholder="Enter password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Login</button>
+        <button className={`${theme}-button`} type="submit">Login</button>
       </form>
     </div>
   );

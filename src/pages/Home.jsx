@@ -1,17 +1,16 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
+  const theme = useSelector(state => state.theme.current);
+
   return (
-    <div className="home">
-      <h1>Welcome to Todo App</h1>
-      <div>
-      </div>
+    <div id="header">
+      <h1 id="title">Welcome to the TODO App</h1>
+      <p className="standard-text">Manage your tasks efficiently with our simple todo application.</p>
       <div>
         <Link to="/login">
-          <button>Login</button>
-        </Link>
-        <Link to="/todos">
-          <button>View Todos</button>
+          <button className={`${theme}-button standalone-button`}>Login</button>
         </Link>
       </div>
     </div>

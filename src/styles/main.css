@@ -5,13 +5,13 @@
 }
 
 body {
+    /* #363532, rgb(88, 111, 112) */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    overflow: hidden;
+    padding-top: 3%;
 }
 
 .home, .login {
@@ -68,43 +68,29 @@ body {
     border-color: #667eea;
 }
 
+/* Body light or darker themes */
 .standard {
-    background: linear-gradient(135deg, #374151, #111827, #000000);
-    color: #f3f4f6;
+    background-image: linear-gradient(100deg, #575656, #062e3f);
+    color: #ffdfdb;
+    transition: 0.3s linear;
     min-height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: all 0.7s ease;
+    width: 100vw;
 }
 
 .light {
-    background: linear-gradient(135deg, #f3f4f6, #e5e7eb, #d1d5db);
-    color: #1f2937;
+    background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+    color: #1a150e;
+    transition: 0.3s linear;
     min-height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: all 0.7s ease;
+    width: 100vw;
 }
 
 .darker {
-    background: linear-gradient(135deg, #1e293b, #0f172a, #020617);
-    color: #f1f5f9;
+    background-image: linear-gradient(100deg, #001214, #001f29);
+    color: white;
+    transition: 0.3s linear;
     min-height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: all 0.7s ease;
+    width: 100vw;
 }
 
 #header, #form, #datetime {
@@ -123,6 +109,7 @@ body {
     width: 100%;
 }
 
+/* Theme buttons div */
 .flexrow-container {
     align-items: center;
     align-self: flex-end;
@@ -132,27 +119,20 @@ body {
 }
 
 .theme-selector {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 1rem 0;
-}
-
-.theme-selector__item {
     border: 1px solid #d1dae3;
     border-radius: 100%;
     height: 35px;
-    width: 35px;
     margin: 0 8px;
-    transition: transform 150ms ease-in-out, box-shadow 200ms ease-in-out;
+    transition: tranform 150ms ease-in-out, box-shadow 200ms ease-in-out;
+    width: 35px;
+}
+
+.theme-selector:hover { 
+    box-shadow: white 0 0 8px;
     cursor: pointer;
 }
 
-.theme-selector__item:hover {
-    box-shadow: white 0 0 8px;
-}
-
-.theme-selector__item:active {
+.theme-selector:active {
     transform: scale(0.95);
 }
 
@@ -168,14 +148,19 @@ body {
     background-image: linear-gradient(100deg, #001214, #001f29);
 }
 
+/* Animation */
 #title {
     border-right: solid 3px rgba(0, 0, 0, 0.75);
     white-space: pre;
-    overflow: hidden;
+    overflow: hidden;     
     letter-spacing: 0.20rem;
     margin-top: 50px;
     margin-bottom: 20px;
     max-width: 480px;
+}
+  
+/* Animation */
+#title {
     animation: animated-text 2s steps(11,end) 0.5s 1 normal both,
         animated-cursor 750ms steps(11,end) infinite;
 }
@@ -183,12 +168,16 @@ body {
 #title.darker-title {
     animation: animated-text 2s steps(11,end) 0.5s 1 normal both, darker-animated-cursor 750ms steps(11,end) infinite;
 }
-
+  
+/* text animation */
+  
 @keyframes animated-text{
     from{width: 0%;}
     to{width: 480px;}
 }
-
+  
+/* cursor animations */
+  
 @keyframes animated-cursor{
     from{border-right-color: rgba(0, 0, 0, 0.75);}
     to{border-right-color: transparent;}
@@ -213,6 +202,7 @@ form input {
     font-size: 17px;
     border: none;
     outline: none;
+    /* border-radius: 15; */
     border-top-left-radius: 17px;
     border-bottom-left-radius: 17px;
     max-width: 500px;
@@ -220,6 +210,7 @@ form input {
     width: 100%;
 }
 
+/* Input themes */
 form input.standard-input {
     background-color: #181a1a;
     color: rgb(247, 226, 223);
@@ -263,7 +254,7 @@ form input.darker-input:hover {
 
 button {
     border: none;
-    outline: none;
+    outline: none; 
     transition: box-shadow 200ms ease, background-color 200ms ease-in-out;
 }
 
@@ -271,6 +262,7 @@ button:hover {
     cursor: pointer;
 }
 
+/* Button themes */
 button.standard-button {
     background-color: rgb(247, 226, 223);
     color: rgb(0, 0, 0);
@@ -307,7 +299,7 @@ form button {
     min-width: 100px;
 }
 
-.todo-container {
+#myUnOrdList {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -316,11 +308,14 @@ form button {
 
 .todo-list {
     min-width: 25%;
+    /* To remove the bullets of unordered list */
     list-style: none;
 }
 
 .todo {
     margin: 1rem;
+    /* background: rgb(247, 226, 223); */
+    /* color: black; */
     font-size: 19px;
     display: flex;
     justify-content: space-between;
@@ -330,6 +325,7 @@ form button {
     transition: background-color 200ms ease-in-out;
 }
 
+/* Items themes */
 .standard-todo {
     background-color: rgb(26, 27, 27);
 }
@@ -344,9 +340,13 @@ form button {
 
 .todo li{
     padding: 7px;
+    /* word-wrap: break-word; */
+    /* flex-wrap: wrap; */
     font-size: 20px;
-    flex: 1;
+    flex: 1; /* To push the trash and the check button to the right */
     border-radius: 30px;
+
+    /* wraps the links */
     overflow-wrap: anywhere;
 }
 
@@ -363,7 +363,7 @@ form button {
     padding: 0rem 0.5rem;
 }
 
-.fa-trash, .fa-check {
+.fa-trash, .fa-check { 
     pointer-events: none;
 }
 
@@ -379,6 +379,7 @@ form button {
     opacity: 0;
 }
 
+/* Responsive design */
 @media only screen and (max-width: 1000px) {
     .flexrow-container {
         align-self: unset;
@@ -392,7 +393,7 @@ form button {
     }
 
     #title {
-        animation:
+        animation: 
             animated-text 3s steps(16,end) 0.5s 1 normal both,
             animated-cursor 750ms steps(16,end) infinite;
         margin-bottom: 10px;
@@ -407,12 +408,14 @@ form button {
     }
 
     #title {
-        animation:
+        animation: 
             animated-text 3.5s steps(16,end) 0.5s 1 normal both,
             animated-cursor 750ms steps(16,end) infinite;
         max-width: 255px;
     }
+}
 
+@media only screen and (max-width: 400px) {
     form {
         align-items: center;
         flex-direction: column;

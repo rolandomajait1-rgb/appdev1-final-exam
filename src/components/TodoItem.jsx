@@ -1,29 +1,28 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleTodoAsync, deleteTodoAsync } from '../features/todos/todoSlice';
+import { useDispatch } from 'react-redux';
+import { updateTodo, deleteTodo } from '../features/todos/todoSlice';
 
-const TodoItem = ({ todo, index }) => {
+const TodoItem = ({ todo }) => {
   const dispatch = useDispatch();
-  const theme = useSelector(state => state.theme.current);
 
-  const handleCheck = () => {
-    dispatch(toggleTodoAsync({ id: todo.id, completed: !todo.completed }));
+  const toggleComplete = () => {
+    dispatch(updateTodo({ ...todo, completed: !todo.completed }));
   };
 
   const handleDelete = () => {
-    dispatch(deleteTodoAsync(todo.id));
+    dispatch(deleteTodo(todo.id));
   };
 
   return (
-    <div className={`todo ${todo.completed ? 'completed' : ''}`}>
+    <div className={`todo standard-todo ${todo.completed ? 'completed' : ''}`}>
+      <li className="todo-item">{todo.title}</li>
       <button 
-        className={`check-btn ${todo.completed ? 'completed' : ''}`}
-        onClick={handleCheck}
+        className="check-btn standard-button"
+        onClick={toggleComplete}
       >
-        {todo.completed && <i className="fas fa-check"></i>}
+        <i className="fas fa-check"></i>
       </button>
-      <span className="todo-item">{todo.title}</span>
       <button 
-        className="delete-btn"
+        className="delete-btn standard-button"
         onClick={handleDelete}
       >
         <i className="fas fa-trash"></i>

@@ -1,27 +1,31 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchTodos } from '../features/todos/todoSlice';
 import AddTodoForm from '../components/AddTodoForm';
 import TodoList from '../components/TodoList';
 import ThemeSelector from '../components/ThemeSelector';
 import DateTime from '../components/DateTime';
 
 const Todos = () => {
-  const theme = useSelector(state => state.theme.current);
+  const dispatch = useDispatch();
+  const todos = useSelector(state => state.todos.items);
+
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, [dispatch]);
+
+  console.log('Todos:', todos); // Debug log
 
   return (
-    <div className={theme}>
+    <div>
       <div id="header">
-        <div className="flexrow-container">
-          <ThemeSelector />
-        </div>
-        <h1 id="title">
-          Just do it<span className="pulse">.</span>
-        </h1>
+        <h1 id="title">Just do it.</h1>
       </div>
       <div id="form">
         <AddTodoForm />
       </div>
       <div>
-        <DateTime />
+        <p><span id="datetime"><DateTime /></span></p>
       </div>
       <div id="myUnOrdList">
         <TodoList />

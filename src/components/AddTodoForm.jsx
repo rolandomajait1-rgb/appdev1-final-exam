@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodoAsync, fetchTodosAsync } from '../features/todos/todoSlice';
+import { addTodo, fetchTodos } from '../features/todos/todoSlice';
 
 const AddTodoForm = () => {
   const [input, setInput] = useState('');
@@ -8,7 +8,7 @@ const AddTodoForm = () => {
   const theme = useSelector(state => state.theme.current);
 
   useEffect(() => {
-    dispatch(fetchTodosAsync());
+    dispatch(fetchTodos());
   }, [dispatch]);
 
   const handleSubmit = (e) => {
@@ -18,7 +18,7 @@ const AddTodoForm = () => {
       alert('You must write something!');
       return;
     }
-    dispatch(addTodoAsync(todoText));
+    dispatch(addTodo(todoText));
     setInput('');
   };
 

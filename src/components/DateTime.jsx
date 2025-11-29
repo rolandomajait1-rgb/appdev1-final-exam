@@ -10,7 +10,7 @@ const DateTime = () => {
     return () => clearInterval(timer);
   }, []);
 
-  return <div id="datetime">{dateTime}</div>;
+  return dateTime;
 };
 
 export default DateTime;
