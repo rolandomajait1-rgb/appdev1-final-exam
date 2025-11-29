@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Todos from './pages/Todos';
 import './App.css';
+import './styles/fonts.css';
 import './styles/main.css';
 
 function App() {
