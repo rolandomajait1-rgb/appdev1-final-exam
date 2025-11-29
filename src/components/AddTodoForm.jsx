@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo } from '../features/todos/todoSlice';
+import { addTodoAsync } from '../features/todos/todoSlice';
 
 const AddTodoForm = () => {
   const [input, setInput] = useState('');
@@ -14,7 +14,7 @@ const AddTodoForm = () => {
       alert('You must write something!');
       return;
     }
-    dispatch(addTodo(todoText));
+    dispatch(addTodoAsync(todoText));
     setInput('');
   };
 
